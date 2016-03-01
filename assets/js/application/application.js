@@ -7,7 +7,7 @@
         spotifyUrl = 'https://api.spotify.com/v1/users';
 
     // Login (new window)
-    function login(callback) {
+    user.login = function(callback) {
       var CLIENT_ID = 'ba2e53ebf4ec4ed2acce03ca66c83783',
           REDIRECT_URI = 'http://localhost:9000/callback.html';
       
@@ -18,7 +18,7 @@
           '&response_type=token';
       }
           
-      var url = getLoginURL([]);
+      var url = getLoginURL(['playlist-modify-public']);
           
       var width = 450,
           height = 730,
@@ -37,9 +37,9 @@
         'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left
        );
           
-    } // end Login
+    }; // end Login
 
-    function getUser(accessToken) {
+    user.getInfo = function(accessToken) {
       return $http({
         method: 'GET',
         url: mySpotifyUrl,
@@ -52,19 +52,10 @@
           // called asynchronously if an error occurs
           // or server returns response with an error status.
         });
-    }
-
-  }]);
-
-  app.controller('SongController', [ '$scope', function($scope) {
-    var song = this;
-
-    $scope.change = function() {
-      console.log($scope);
     };
 
     // Get Playlists
-    function getUserPlaylists(accessToken) {
+    user.getUserPlaylists = function(accessToken) {
       return $http({
         method: 'GET',
         url: mySpotifyUrl + '/playlists',
@@ -80,38 +71,61 @@
     }
 
     // Add Playlist
-    function addPlaylist(accessToken) {
+    user.addPlaylist = function(accessToken, playlist) {
       return $http({
         method: 'POST',
         url: spotifyUrl + '/' + user.id + '/playlists',
         headers: {
-          'Authorization': 'Bearer ' + accessToken
+          'Authorization': 'Bearer ' + accessToken,
+          'Content-Type': 'application/json'
+        },
+        data: {
+          'name': playlist
         }
       }).then(function successCallback(response) {
-          user.playlists = response.data.items;
+          user.playlistID = response.data.id;
         }, function errorCallback(response) {
           // called asynchronously if an error occurs
           // or server returns response with an error status.
         });
-    }
-      
-    // song.getPlaylists = function() {
-    //   login(function(accessToken) {
-    //     getUserPlaylists(accessToken);
-    //   });
-    // };
-
-    song.getUser = function() {
-      login(function(accessToken) {
-        getUser(accessToken).then(function (argument) {
-          // addPlaylist(accessToken)
-          console.log(this.playlist);
-        })
-      });
     };
 
-    song.addSong = function(song) {
-      console.log(song);
+    // Add Song
+    user.addSong = function(accessToken, playlist, song) {
+      return $http({
+        method: 'POST',
+        url: spotifyUrl + '/' + user.id + '/playlists/' + playlist + '/tracks?uris=spotify%3Atrack%' + song,
+        headers: {
+          'Authorization': 'Bearer ' + accessToken,
+          'Content-Type': 'application/json'
+        }
+      }).then(function successCallback(response) {
+
+        }, function errorCallback(response) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+        });
+    };
+
+  }]);
+
+  app.controller('SongController', [ '$scope', function($scope) {
+    var song = this;
+
+    song.disabled = true;
+    $scope.keyup = function() {
+      song.disabled = false;
+      // Todo - figure out why this doesn't work when field is empty
+    };
+
+    song.addToPlaylist = function(song, user, playlist) {
+      user.login(function(accessToken) {
+        user.getInfo(accessToken).then(function() {
+          user.addPlaylist(accessToken, playlist).then(function() {
+            user.addSong(accessToken, user.playlistID, song);
+          });
+        })
+      });
     };
 
   }]);
