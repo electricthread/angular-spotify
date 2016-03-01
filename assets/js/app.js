@@ -55,7 +55,7 @@
     };
 
     // Get Playlists
-    user.getUserPlaylists = function(accessToken) {
+    user.getPlaylists = function(accessToken) {
       return $http({
         method: 'GET',
         url: mySpotifyUrl + '/playlists',
@@ -100,7 +100,7 @@
           'Content-Type': 'application/json'
         }
       }).then(function successCallback(response) {
-
+          console.log(response);
         }, function errorCallback(response) {
           // called asynchronously if an error occurs
           // or server returns response with an error status.
@@ -121,8 +121,23 @@
     song.addToPlaylist = function(song, user, playlist) {
       user.login(function(accessToken) {
         user.getInfo(accessToken).then(function() {
-          user.addPlaylist(accessToken, playlist).then(function() {
-            user.addSong(accessToken, user.playlistID, song);
+          user.getPlaylists(accessToken).then(function() {
+            playlistnames = [];
+            // add playlist names to array
+            user.playlists.forEach(function(item) {
+              playlistnames.push(item.name);
+            });
+            // If playlist exists, add song
+            if (playlistnames.indexOf(playlist) >= 0) {
+              var oldPlaylist = user.playlists[playlistnames.indexOf(playlist)].id;
+              user.addSong(accessToken, oldPlaylist, song);
+            }
+            // Otherwise create playlist, add song
+            else {
+              user.addPlaylist(accessToken, playlist).then(function() {
+                user.addSong(accessToken, user.playlistID, song);
+              });
+            }
           });
         })
       });
