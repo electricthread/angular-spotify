@@ -1,0 +1,21 @@
+@mixin overlay($opacity) {
+	position: relative;
+
+	&::before {
+		background: rgba(0,0,0,$opacity);
+		content:" ";
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top:0;
+		width: 100%;
+	}
+}
+
+@mixin white-overlay($opacity) {
+	@include overlay($opacity);
+	
+	&::before {
+		background: rgba(255,255,255,$opacity);
+	}
+}

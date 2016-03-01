@@ -1,0 +1,18 @@
+// General hero/masthead section
+
+.hero {
+  background-color: $light-gray;
+  padding-bottom:6em;
+  padding-top:6em;
+  max-width: none;
+}
+
+.hero__title {
+  margin-bottom: .1em;
+}
+
+.hero__subtitle {
+  font: 700 1.1em/1.2em $base-font-family;
+  padding: 0 3em;
+  text-transform:uppercase;
+}

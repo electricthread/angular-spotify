@@ -1,0 +1,78 @@
+// Article - Teaser format
+
+.article-teaser {
+  @include clearfix;
+  margin: 1em 0;
+  padding:1em;
+  text-align:center;
+
+  @include large {
+    padding: 3em 4em;
+  }
+}
+
+// General
+.article-teaser .article-teaser__container {
+  @include outer-container;
+}
+
+.article-teaser__text,
+.article-teaser__image {
+  @include large {
+    float: right;
+    width: 49%;
+  }
+}
+
+// Text
+.article-teaser__text {
+  @include large {
+    margin-left: 2%;
+    padding: 1.5em 0 0 5em;
+    text-align:left;
+  }
+}
+
+// Image
+.article-teaser__image {
+  display: block;
+  margin-top: 2em;
+
+  @include large {
+    margin-top: 0;
+  }
+}
+
+// Title
+.article-teaser__title {
+  @include small-title;
+
+  @include large {
+    margin-bottom:1em;
+  }
+}
+
+// Featured
+.article-teaser--featured {
+  background-color:$dark-gray;
+  color:#fff;
+}
+
+// Featured - Switch Image and Text
+.article-teaser--featured {
+  .article-teaser__text,
+  .article-teaser__image {
+    @include large {
+      float: left;
+      width: 49%;
+    }
+  }
+}
+
+.article-teaser--featured .article-teaser__text {
+  @include large {
+    margin-left: 0;
+    margin-right: 2%;
+    padding: 1.5em 5em 0 0;
+  }
+}

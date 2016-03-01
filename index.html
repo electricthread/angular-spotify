@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="spotify">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Front-End Assessment</title>
+        <meta name="description" content="Photo booth Carles wolf, cornhole pop-up messenger bag craft beer salvia hella.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <!-- Typically concatenated into 1 file, but kept separate for assessment -->
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link href='https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="assets/css/application.css">
+
+        <!-- If needed, uncomment for older browser to support <picture> -->
+        <!-- <script src="assets/js/vendor/modernizr-custom.js"></script> -->
+        <!-- <script src="assets/js/vendor/picturefill.min.js"></script> -->
+    </head>
+    <body class="homepage">
+      <header class="app-header">
+        <h1><a href="#">Logo</a></h1>
+        <button class="menu-button icon-menu" id="menu-button"></button>
+        <nav class="nav-list">
+          <ul>
+            <li class="nav-list__item"><a href="#">About</a></li>
+            <li class="nav-list__item"><a href="#">Work</a></li>
+            <li class="nav-list__item"><a href="#">Blog</a></li>
+            <li class="nav-list__item"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="sliding-panel-fade-screen" id="menu-screen"></div>
+      </header>
+
+      <div role="main">
+
+        <section class="hero">
+          <h1 class="hero__title">Angular Spotify</h1>
+        </section>
+
+        <section class="main" ng-controller="UserController as user">
+          <div>
+            <!-- <button class="btn btn-primary" id="btn-login" ng-click="user.getPlaylists()">Get My Playlists</button> -->
+          </div>
+          <!-- <div id="playlists" ng-show="user.playlists[0]">
+            <h2>My Playlists:</h2>
+            <ul>
+              <li ng-repeat="playlist in user.playlists">Playlist Name: {{ playlist.name}}</li>
+            </ul>
+          </div> -->
+          <add-song></add-song>
+        </section>
+        
+      </div><!--main-->
+
+
+
+<!--       <footer class="app-footer">
+        <p>Footer meta</p>
+        <p>Other footer meta</p>
+      </footer> -->
+
+      <!-- Typically concatenated into 1 file, but kept separate for assessment -->
+      <script src="assets/js/vendor/angular.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="assets/js/app.js"></script>
+    </body>
+</html>

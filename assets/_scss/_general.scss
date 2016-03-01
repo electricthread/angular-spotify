@@ -1,0 +1,38 @@
+// App-wide styles for high-level elements
+
+section {
+  @include outer-container;
+  padding:0 1em;
+  text-align:center;
+
+  @include large {
+    padding:0;
+  }
+}
+
+.main {
+  margin:5em auto;
+  min-height:500px;
+  max-width: 60%;
+}
+
+// Spotify
+#login, #loggedin {
+  display: none;
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 500px;
+}
+
+.main li {
+  @include outer-container;
+  @include clearfix;
+  margin-bottom: 1em;
+
+  iframe, button {
+    @include span-columns(6);
+  }
+}

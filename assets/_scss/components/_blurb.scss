@@ -1,0 +1,30 @@
+// Blurb - includes Title, Description, icon
+
+.blurb {
+  margin: 3em 0;
+
+  @include large {
+    @include span-columns(4);
+  }
+}
+
+.blurb__title {
+  @include small-title;
+}
+
+.blurb__subtitle {
+  font:1.1em $base-font-family;
+  font-weight:normal;
+}
+
+.blurb__icon {
+  background-color:$yellow;
+  border-radius: 50px;
+  color:#fff;
+  display: block;
+  font:1.5em $heading-font-family;
+  margin: 0 auto;
+  padding: 9px;
+  speak: none;
+  width: 50px;
+}

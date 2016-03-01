@@ -1,0 +1,15 @@
+// Generic nav inline list
+
+.nav-list {
+  ul, ol {
+    margin:0;
+    padding:0;
+  }
+}
+
+.nav-list__item {
+  display: inline;
+  list-style:none;
+  margin: 0 0.4em;
+}
+

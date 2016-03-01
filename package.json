@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^1.9.1",
+    "gulp": "^3.8.11",
+    "gulp-concat":"^2.6.0",
+    "gulp-imagemin": "^2.1.0",
+    "gulp-load-plugins": "^0.8.0",
+    "node-neat": "^1.7.1-beta1",
+    "gulp-sass": "^2.1.1",
+    "run-sequence": "^1.0.2"
+  }
+}

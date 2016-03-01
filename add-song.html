@@ -1,0 +1,19 @@
+<form name="playlist-addition" ng-controller="SongController as SongCtrl" ng-submit="song.addSong(song)">
+  <label>Enter Playlist Name</label>
+  <input type="text" ng-model="playlist">
+  <h1>Add to <span ng-show="playlist">"</span>{{ playlist || "Playlist" }}<span ng-show="playlist">"</span></h1>
+  <ul>
+    <li>
+      <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A6ToM0uwxtPKo9CMpbPGYvM" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+      <button ng-click="user.getUser()" disabled>Add This Song to Playlist</button>
+    </li>
+    <li>
+      <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A6H3kDe7CGoWYBabAeVWGiD" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+      <button ng-click="user.getPlaylists('3A6H3kDe7CGoWYBabAeVWGiD')">Add This Song to Playlist</button>
+    </li>
+    <li>
+      <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A0wJoRiX5K5BxlqZTolB2LD" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+      <button ng-click="user.getPlaylists('3A0wJoRiX5K5BxlqZTolB2LD')">Add This Song to Playlist</button>
+    </li>
+  </ul>
+</form>
