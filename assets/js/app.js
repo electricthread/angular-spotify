@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var app = angular.module('spotify', ['song']);
+  var app = angular.module('spotify', ['song', 'search']);
 
   app.controller('UserController', ['$http', function ($http) {
     var user = this,
@@ -99,7 +99,7 @@
     user.addSong = function(accessToken, playlist, track) {
       return $http({
         method: 'POST',
-        url: spotifyUrl + '/' + user.id + '/playlists/' + playlist + '/tracks?uris=spotify%3Atrack%' + track,
+        url: spotifyUrl + '/' + user.id + '/playlists/' + playlist + '/tracks?uris=spotify%3Atrack%3A' + track,
         headers: {
           'Authorization': 'Bearer ' + accessToken,
           'Content-Type': 'application/json'
@@ -114,16 +114,46 @@
 
 })();
 (function() {
-  var app = angular.module('song', [ ]);
+  var search = angular.module('search', [ ]).config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+      // Allow same origin resource loads.
+      'self',
+      // Allow loading from our assets domain.  Notice the difference between * and **.
+      'https://embed.spotify.com/**'
+    ]);
+  });;
 
-  app.directive('addSong', function() {
+  search.controller('SearchController', ['$http','$scope','$sce', function ($http, $scope, $sce) {
+    $scope.results = [];
+
+    this.SongSearch = function(song) {
+      var encodedSong = encodeURIComponent(song);
+
+      return $http({
+        method: 'GET',
+        url: 'https://api.spotify.com/v1/search?q=' + encodedSong + '&type=track'
+      }).then(function successCallback(response) {
+          $scope.iframeURL = 'https://embed.spotify.com/?uri=spotify%3Atrack%3A';
+          $scope.results = response.data.tracks.items;
+        }, function errorCallback(response) {
+          console.log(response);
+        });
+    };
+
+  }]);
+
+})();
+(function() {
+  var song = angular.module('song', [ ]);
+
+  song.directive('addSong', function() {
     return {
       restrict: 'E',
       templateUrl: 'add-song.html'
     };
   });
 
-  app.controller('SongController', [ '$scope', function($scope) {
+  song.controller('SongController', [ '$scope', function($scope) {
     var song = this;
 
     song.disabled = true;

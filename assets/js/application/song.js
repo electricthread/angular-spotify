@@ -1,14 +1,14 @@
 (function() {
-  var app = angular.module('song', [ ]);
+  var song = angular.module('song', [ ]);
 
-  app.directive('addSong', function() {
+  song.directive('addSong', function() {
     return {
       restrict: 'E',
       templateUrl: 'add-song.html'
     };
   });
 
-  app.controller('SongController', [ '$scope', function($scope) {
+  song.controller('SongController', [ '$scope', function($scope) {
     var song = this;
 
     song.disabled = true;

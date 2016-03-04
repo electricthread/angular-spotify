@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var app = angular.module('spotify', ['song']);
+  var app = angular.module('spotify', ['song', 'search']);
 
   app.controller('UserController', ['$http', function ($http) {
     var user = this,
@@ -99,7 +99,7 @@
     user.addSong = function(accessToken, playlist, track) {
       return $http({
         method: 'POST',
-        url: spotifyUrl + '/' + user.id + '/playlists/' + playlist + '/tracks?uris=spotify%3Atrack%' + track,
+        url: spotifyUrl + '/' + user.id + '/playlists/' + playlist + '/tracks?uris=spotify%3Atrack%3A' + track,
         headers: {
           'Authorization': 'Bearer ' + accessToken,
           'Content-Type': 'application/json'
