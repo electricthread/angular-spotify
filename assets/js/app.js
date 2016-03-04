@@ -11,11 +11,7 @@
     // Login (new window)
     user.login = function (callback) {
       var CLIENT_ID = 'ba2e53ebf4ec4ed2acce03ca66c83783';
-      if (location.hostname === "localhost") {
-        var REDIRECT_URI = window.location.href + 'callback.html';
-      } else {
-        var REDIRECT_URI = window.location.href + 'callback';
-      }
+      var REDIRECT_URI = window.location.href + 'callback.html';
           
 
       function getLoginURL(scopes) {
