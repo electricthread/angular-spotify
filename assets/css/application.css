@@ -227,26 +227,30 @@ section {
   white-space: nowrap;
   width: 500px; }
 
-.main li {
+.main .search_result {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em; }
-  .main li::after {
+  .main .search_result::after {
     clear: both;
     content: "";
     display: table; }
-  .main li::after {
+  .main .search_result::after {
     clear: both;
     content: "";
     display: table; }
-  .main li iframe, .main li button {
+  .main .search_result iframe, .main .search_result button {
     float: left;
     display: block;
     margin-right: 2.3576515979%;
     width: 48.821174201%; }
-    .main li iframe:last-child, .main li button:last-child {
+    .main .search_result iframe:last-child, .main .search_result button:last-child {
       margin-right: 0; }
+
+.main .search_button {
+  margin-bottom: 1em;
+  padding: 1em; }
 
 .hero {
   background-color: #141414;
