@@ -3,9 +3,8 @@
 // Hero/Masthead
 .homepage .hero {
   @include white-overlay(.1);
-  background:url(../img/clouds.jpg) no-repeat scroll center center;
   background-size:cover;
-  color:shade($dark-gray, 50%);
+  color:$action-color;
   padding-top:8em;
   position: relative;
 }

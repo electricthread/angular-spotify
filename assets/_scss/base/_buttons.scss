@@ -9,10 +9,10 @@ button, .button {
   cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
-  font-size: $base-font-size;
+  font-size: 1.1em;
   font-weight: 600;
   line-height: 1;
-  padding: 0.75em 1em;
+  padding: 1.75em 1em;
   text-decoration: none;
   user-select: none;
   vertical-align: middle;
@@ -20,7 +20,7 @@ button, .button {
 
   &:hover,
   &:focus {
-    background-color: darken($action-color, 15%);
+    background-color: tint($action-color, 15%);
     color: #fff;
   }
 

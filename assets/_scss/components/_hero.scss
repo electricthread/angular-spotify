@@ -1,7 +1,7 @@
 // General hero/masthead section
 
 .hero {
-  background-color: $light-gray;
+  background-color: shade($dark-gray, 60%);
   padding-bottom:6em;
   padding-top:6em;
   max-width: none;

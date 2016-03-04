@@ -5,8 +5,8 @@
 
   app.controller('UserController', ['$http', function ($http) {
     var user = this,
-        mySpotifyUrl = 'https://api.spotify.com/v1/me',
-        spotifyUrl = 'https://api.spotify.com/v1/users';
+        spotifyUrl = 'https://api.spotify.com/v1/users',
+        mySpotifyUrl = 'https://api.spotify.com/v1/me';
 
     // Login (new window)
     user.login = function (callback) {
@@ -31,6 +31,7 @@
         var hash = JSON.parse(event.data);
         if (hash.type == 'access_token') {
           callback(hash.access_token);
+          user.token = hash.access_token;
         }
       }, false);
           
@@ -102,42 +103,6 @@
         }, function errorCallback(response) {
           console.log(response);
         });
-    };
-
-  }]);
-
-  app.controller('SongController', [ '$scope', function($scope) {
-    var song = this;
-
-    song.disabled = true;
-    $scope.keyup = function() {
-      song.disabled = false;
-      // Todo - figure out why this doesn't work when field is empty
-    };
-
-    song.addToPlaylist = function(track, user, playlist) {
-      user.login(function(accessToken) {
-        user.getInfo(accessToken).then(function() {
-          user.getPlaylists(accessToken).then(function() {
-            var playlistnames = [];
-            // add playlist names to array
-            user.playlists.forEach(function(item) {
-              playlistnames.push(item.name);
-            });
-            // If playlist exists, add song
-            if (playlistnames.indexOf(playlist) >= 0) {
-              var oldPlaylist = user.playlists[playlistnames.indexOf(playlist)].id;
-              user.addSong(accessToken, oldPlaylist, track);
-            }
-            // Otherwise create playlist, add song
-            else {
-              user.addPlaylist(accessToken, playlist).then(function() {
-                user.addSong(accessToken, user.playlistID, track);
-              });
-            }
-          });
-        });
-      });
     };
 
   }]);

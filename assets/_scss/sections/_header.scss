@@ -20,7 +20,7 @@
 }
 
 .app-header a {
-  color:$dark-gray;
+  color:tint($dark-gray, 80%);
 }
 
 // Nav
