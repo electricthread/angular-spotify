@@ -28,12 +28,19 @@ section {
   width: 500px;
 }
 
-.main li {
-  @include outer-container;
-  @include clearfix;
-  margin-bottom: 1em;
+.main {
+  .search_result {
+    @include outer-container;
+    @include clearfix;
+    margin-bottom: 1em;
 
-  iframe, button {
-    @include span-columns(6);
+    iframe, button {
+      @include span-columns(6);
+    }
+  }
+
+  .search_button {
+    margin-bottom: 1em;
+    padding: 1em;
   }
 }

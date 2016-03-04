@@ -9,7 +9,6 @@
             hash[kv.substring(0, spl)] = decodeURIComponent(kv.substring(spl+1));
           }
         });
-        console.log('initial hash', hash);
         if (hash.access_token) {
           window.opener.postMessage(JSON.stringify({
             type:'access_token',
