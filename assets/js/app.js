@@ -11,7 +11,11 @@
     // Login (new window)
     user.login = function (callback) {
       var CLIENT_ID = 'ba2e53ebf4ec4ed2acce03ca66c83783';
-      var REDIRECT_URI = window.location.href + 'callback.html';
+      if (location.hostname === "localhost") {
+        var REDIRECT_URI = window.location.href + 'callback.html';
+      } else {
+        var REDIRECT_URI = window.location.href + 'callback';
+      }
           
 
       function getLoginURL(scopes) {
@@ -153,6 +157,7 @@
 
     song.addToPlaylist = function(track, user, playlist, $event) {
       $event.target.innerText = 'Added!';
+      $event.target.disabled = true;
       // If user is not authenticated
       if (typeof user.token === 'undefined') {
         user.login(function(accessToken) {
