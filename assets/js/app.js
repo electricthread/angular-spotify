@@ -10,8 +10,13 @@
 
     // Login (new window)
     user.login = function (callback) {
-      var CLIENT_ID = 'ba2e53ebf4ec4ed2acce03ca66c83783',
-          REDIRECT_URI = 'http://localhost:9000/callback.html';
+      var CLIENT_ID = 'ba2e53ebf4ec4ed2acce03ca66c83783';
+      if (location.hostname === "localhost") {
+        var REDIRECT_URI = window.location.href + 'callback.html';
+      } else {
+        var REDIRECT_URI = window.location.href + 'callback';
+      }
+          
 
       function getLoginURL(scopes) {
         return 'https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID +
