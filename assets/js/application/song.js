@@ -42,6 +42,7 @@
 
     song.addToPlaylist = function(track, user, playlist, $event) {
       $event.target.innerText = 'Added!';
+      $event.target.disabled = true;
       // If user is not authenticated
       if (typeof user.token === 'undefined') {
         user.login(function(accessToken) {
