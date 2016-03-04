@@ -1,5 +1,5 @@
 <form name="playlist-addition" ng-controller="SongController as songCtrl">
-  <label>Create a Playlist Named:</label>
+  <label>Create a Spotify Playlist Named:</label>
   <input type="text" ng-model="songCtrlplaylist" ng-keyup="keyup()">
   <h1>Add to <span ng-show="songCtrlplaylist">"</span>{{ songCtrlplaylist || "Playlist" }}<span ng-show="songCtrlplaylist">"</span></h1>
   <ul>

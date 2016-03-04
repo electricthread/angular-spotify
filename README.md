@@ -1,4 +1,4 @@
-# Front End Assessment
+# Spotify &#9829; Angular
 
 ### Prerequisites
 - [Node.js](https://nodejs.org) `>=0.10`

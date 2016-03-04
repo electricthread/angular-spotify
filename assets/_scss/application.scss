@@ -10,27 +10,12 @@
 @import 'neat';
 
 
-// Custom Mixins
-@import 'base/mixins/small-title';
-@import 'base/mixins/overlay';
-
-
 // App-Wide
 @import 'general';
 
 
 // Reusable Components
-@import 'components/nav-list';
 @import 'components/hero';
-@import 'components/blurb';
-@import 'components/article-teaser';
-@import 'components/ad';
-@import 'components/small-form';
-
-
-// Reusable Sections
-@import 'sections/header';
-@import 'sections/footer';
 
 
 // Specific Pages

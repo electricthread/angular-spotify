@@ -2,23 +2,8 @@
 
 // Hero/Masthead
 .homepage .hero {
-  @include white-overlay(.1);
   background-size:cover;
   color:$action-color;
   padding-top:8em;
   position: relative;
-}
-
-// Advertisement
-.homepage .advertisement {
-  background:url(../img/city.jpg) no-repeat scroll center center;
-  background-size: cover;
-
-  @include medium {
-    background-image:url(../img/city_700w.jpg);
-  }
-
-  @include large {
-    background-image:url(../img/city_1200w.jpg);
-  }
 }
