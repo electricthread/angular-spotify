@@ -13,5 +13,6 @@
       <iframe ng-src="{{ iframeURL + result.id}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
       <button ng-click="songCtrl.addToPlaylist(result.id, user, songCtrlplaylist, $event)" ng-disabled="songCtrl.disabled">Add This Song</button>
     </div>
+    <button class="search_more" ng-click="searchCtrl.MoreSongs(trackName)" ng-show="loadMore">Load More</button>
   </div>
 </form>
