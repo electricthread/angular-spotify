@@ -1,9 +1,8 @@
 (function() {
   var search = angular.module('search', [ ]).config(function($sceDelegateProvider) {
+    // Whitelist the following domains for the iframe src
     $sceDelegateProvider.resourceUrlWhitelist([
-      // Allow same origin resource loads.
       'self',
-      // Allow loading from our assets domain.  Notice the difference between * and **.
       'https://embed.spotify.com/**'
     ]);
   });;
@@ -22,7 +21,8 @@
           var items = response.data.tracks.items;
           $scope.iframeURL = 'https://embed.spotify.com/?uri=spotify%3Atrack%3A';
           $scope.results = items;
-          if (items.length = 5) {
+          console.log(response);
+          if (response.data.tracks.total > items.length) {
             $scope.loadMore = true;
             $scope.offset = 5;
           }
@@ -43,7 +43,6 @@
           $scope.iframeURL = 'https://embed.spotify.com/?uri=spotify%3Atrack%3A';
           $scope.results.push.apply($scope.results, items);
           $scope.offset = offset;
-          // console.log($scope.results);
         }, function errorCallback(response) {
           console.log(response);
         });

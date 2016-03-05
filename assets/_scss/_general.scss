@@ -11,9 +11,18 @@ section {
 }
 
 .main {
-  margin:5em auto;
+  margin:3em auto;
   min-height:500px;
-  max-width: 60%;
+  max-width: 95%;
+
+  @include medium {
+    margin:5em auto;
+    max-width: 80%;
+  }
+
+  @include large {
+    max-width: 60%; 
+  }
 }
 
 // Spotify
@@ -35,7 +44,12 @@ section {
     margin-bottom: 1em;
 
     iframe, button {
-      @include span-columns(6);
+      @include span-columns(11);
+      margin-bottom: .3em;
+
+      @include medium {
+        @include span-columns(6);
+      }
     }
   }
 

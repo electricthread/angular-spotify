@@ -1,14 +1,43 @@
 // General hero/masthead section
 
+@mixin overlay($opacity) {
+  position: relative;
+
+  &::before {
+    background: rgba(0,0,0,$opacity);
+    content:" ";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top:0;
+    width: 100%;
+  }
+}
+
+@mixin white-overlay($opacity) {
+  @include overlay($opacity);
+  
+  &::before {
+    background: rgba(255,255,255,$opacity);
+  }
+}
+
 .hero {
-  background-color: shade($dark-gray, 60%);
+  @include white-overlay(.1);
+  background:url(../img/bg.jpg) no-repeat scroll left bottom;
+  background-size:cover;
   padding-bottom:6em;
   padding-top:6em;
   max-width: none;
 }
 
 .hero__title {
+  font-size: 3em;
   margin-bottom: .1em;
+
+  @include medium {
+    font-size: 8em;
+  }
 }
 
 .hero__subtitle {
