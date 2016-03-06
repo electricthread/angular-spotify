@@ -7,17 +7,18 @@ button, .button {
   appearance: none;
   -webkit-font-smoothing: antialiased;
   background-color: #1ED760;
-  border-radius: 3px;
+  border-radius: 1px;
   border: none;
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.1em;
   font-weight: 600;
   line-height: 1;
-  padding: 1.75em 1em;
+  padding: 1.25em 1em;
   text-decoration: none;
+  text-transform: uppercase;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap; }
@@ -41,7 +42,7 @@ input,
 label,
 select {
   display: block;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1em; }
 
 label {
@@ -57,10 +58,10 @@ select[multiple=multiple],
 textarea {
   background-color: #fff;
   border: 1px solid #999;
-  border-radius: 3px;
+  border-radius: 1px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1em;
   margin-bottom: 0.75em;
   padding: 0.5em;
@@ -76,6 +77,22 @@ textarea {
     border-color: #1ED760;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(140, 140, 140, 0.7);
     outline: none; }
+  input[type="color"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="datetime"]::-webkit-input-placeholder, input[type="datetime-local"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder, input[type="month"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="search"]::-webkit-input-placeholder, input[type="tel"]::-webkit-input-placeholder, input[type="text"]::-webkit-input-placeholder, input[type="time"]::-webkit-input-placeholder, input[type="url"]::-webkit-input-placeholder, input[type="week"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder,
+  select[multiple=multiple]::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: #ddd; }
+  input[type="color"]::-moz-placeholder, input[type="date"]::-moz-placeholder, input[type="datetime"]::-moz-placeholder, input[type="datetime-local"]::-moz-placeholder, input[type="email"]::-moz-placeholder, input[type="month"]::-moz-placeholder, input[type="number"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="search"]::-moz-placeholder, input[type="tel"]::-moz-placeholder, input[type="text"]::-moz-placeholder, input[type="time"]::-moz-placeholder, input[type="url"]::-moz-placeholder, input[type="week"]::-moz-placeholder, textarea::-moz-placeholder,
+  select[multiple=multiple]::-moz-placeholder,
+  textarea::-moz-placeholder {
+    color: #ddd; }
+  input[type="color"]:-moz-placeholder, input[type="date"]:-moz-placeholder, input[type="datetime"]:-moz-placeholder, input[type="datetime-local"]:-moz-placeholder, input[type="email"]:-moz-placeholder, input[type="month"]:-moz-placeholder, input[type="number"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="search"]:-moz-placeholder, input[type="tel"]:-moz-placeholder, input[type="text"]:-moz-placeholder, input[type="time"]:-moz-placeholder, input[type="url"]:-moz-placeholder, input[type="week"]:-moz-placeholder, textarea:-moz-placeholder,
+  select[multiple=multiple]:-moz-placeholder,
+  textarea:-moz-placeholder {
+    color: #ddd; }
+  input[type="color"]:-ms-input-placeholder, input[type="date"]:-ms-input-placeholder, input[type="datetime"]:-ms-input-placeholder, input[type="datetime-local"]:-ms-input-placeholder, input[type="email"]:-ms-input-placeholder, input[type="month"]:-ms-input-placeholder, input[type="number"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="search"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholder, input[type="text"]:-ms-input-placeholder, input[type="time"]:-ms-input-placeholder, input[type="url"]:-ms-input-placeholder, input[type="week"]:-ms-input-placeholder, textarea:-ms-input-placeholder,
+  select[multiple=multiple]:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    color: #ddd; }
 
 textarea {
   resize: vertical; }
@@ -122,7 +139,7 @@ body {
   font-feature-settings: "kern", "liga", "pnum";
   -webkit-font-smoothing: antialiased;
   color: #333;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1em;
   line-height: 1.5; }
 
@@ -132,10 +149,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Abril Fatface", cursive;
+  font-family: "Raleway", sans-serif;
   font-size: 1em;
-  line-height: 1.2;
-  margin: 0 0 0.75em; }
+  line-height: 1.5;
+  margin: 0 0 0.75em;
+  text-transform: uppercase; }
 
 p {
   margin: 0 0 0.75em; }
@@ -200,29 +218,51 @@ html {
   box-sizing: inherit; }
 
 section {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
   padding: 0 1em;
   text-align: center; }
-  section::after {
-    clear: both;
-    content: "";
-    display: table; }
   @media screen and (min-width: 53.75em) {
     section {
       padding: 0; } }
 
 .main {
-  margin: 3em auto;
+  font-size: 1.3em;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1; }
+  .main:before {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 500px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: -256px;
+    transform: skewY(-7.5deg);
+    transform-origin: 100% 0;
+    z-index: -1;
+    -webkit-backface-visibility: hidden; }
+    @media screen and (min-width: 84.1875em) {
+      .main:before {
+        top: -295px; } }
+
+.inner {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 3em auto 5em;
   min-height: 500px;
   max-width: 95%; }
+  .inner::after {
+    clear: both;
+    content: "";
+    display: table; }
   @media screen and (min-width: 40em) {
-    .main {
-      margin: 5em auto;
+    .inner {
+      margin: 0em auto 5em;
       max-width: 80%; } }
   @media screen and (min-width: 53.75em) {
-    .main {
+    .inner {
       max-width: 60%; } }
 
 #login, #loggedin {
@@ -272,9 +312,9 @@ section {
   position: relative;
   background: url(../img/bg.jpg) no-repeat scroll left bottom;
   background-size: cover;
-  padding-bottom: 6em;
-  padding-top: 6em;
-  max-width: none; }
+  padding: 10em 4em 16em;
+  max-width: none;
+  text-align: left; }
   .hero::before {
     background: rgba(0, 0, 0, 0.1);
     content: " ";
@@ -287,19 +327,15 @@ section {
     background: rgba(255, 255, 255, 0.1); }
 
 .hero__title {
+  border-bottom: 3px solid rgba(1, 251, 90, 0.16);
   font-size: 3em;
-  margin-bottom: .1em; }
-  @media screen and (min-width: 40em) {
-    .hero__title {
-      font-size: 8em; } }
+  margin-bottom: .5em; }
 
 .hero__subtitle {
-  font: 700 1.1em/1.2em "Open Sans", sans-serif;
-  padding: 0 3em;
+  font: 300 1.3em/1.2em "Raleway", sans-serif;
   text-transform: uppercase; }
 
 .homepage .hero {
   background-size: cover;
   color: rgba(36, 249, 112, 0.88);
-  padding-top: 8em;
   position: relative; }

@@ -50,6 +50,10 @@ textarea {
     box-shadow: $form-box-shadow-focus;
     outline: none;
   }
+
+  @include placeholder {
+    color: #ddd;
+  }
 }
 
 textarea {

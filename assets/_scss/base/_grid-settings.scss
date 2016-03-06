@@ -9,9 +9,11 @@
 // Neat Breakpoints
 $medium-screen: em(640);
 $large-screen: em(860);
+$giant-screen: em(1347);
 
 $medium-screen-up: new-breakpoint(min-width $medium-screen 12);
 $large-screen-up: new-breakpoint(min-width $large-screen 12);
+$giant-screen-up: new-breakpoint(min-width $giant-screen 12);
 
 // Mixins for quick '@include SCREEN-SIZE' syntax
 @mixin medium {
@@ -22,6 +24,12 @@ $large-screen-up: new-breakpoint(min-width $large-screen 12);
 
 @mixin large {
   @include media($large-screen-up) {
+    @content;
+  }
+}
+
+@mixin giant {
+  @include media($giant-screen-up) {
     @content;
   }
 }

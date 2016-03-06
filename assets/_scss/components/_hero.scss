@@ -26,22 +26,18 @@
   @include white-overlay(.1);
   background:url(../img/bg.jpg) no-repeat scroll left bottom;
   background-size:cover;
-  padding-bottom:6em;
-  padding-top:6em;
+  padding:10em 4em 16em;
   max-width: none;
+  text-align:left;
 }
 
 .hero__title {
+  border-bottom:3px solid rgba(1, 251, 90, 0.16);
   font-size: 3em;
-  margin-bottom: .1em;
-
-  @include medium {
-    font-size: 8em;
-  }
+  margin-bottom: .5em;
 }
 
 .hero__subtitle {
-  font: 700 1.1em/1.2em $base-font-family;
-  padding: 0 3em;
+  font: 300 1.3em/1.2em $base-font-family;
   text-transform:uppercase;
 }

@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <link rel="stylesheet" href="assets/css/normalize.css">
-    <link href='https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/application.css">
   </head>
   <body class="homepage">
@@ -18,16 +18,17 @@
     </header>
 
     <div role="main">
-
       <section class="hero">
         <h1 class="hero__title">Spotify &#9829; Angular</h1>
+        <h2 class="hero__subtitle">Add Songs to a Custom Playlist using Angular</h2>
       </section>
 
       <section class="main" ng-controller="UserController as user">
-        <add-song></add-song>
-        <search></search>
+        <div class="inner">
+          <add-song></add-song>
+          <search></search>
+        </div><!--inner-->
       </section>
-      
     </div><!--main-->
 
     <script src="assets/js/vendor/angular.min.js"></script>

@@ -1,7 +1,6 @@
 // App-wide styles for high-level elements
 
 section {
-  @include outer-container;
   padding:0 1em;
   text-align:center;
 
@@ -11,12 +10,39 @@ section {
 }
 
 .main {
-  margin:3em auto;
+  font-size:1.3em;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+
+  &:before {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 500px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top:-256px;
+    transform: skewY(-7.5deg);
+    transform-origin: 100% 0;
+    z-index: -1;
+    -webkit-backface-visibility: hidden;
+
+    @include giant {
+      top:-295px;
+    }
+  }
+}
+
+.inner {
+  @include outer-container;
+  margin:3em auto 5em;
   min-height:500px;
   max-width: 95%;
 
   @include medium {
-    margin:5em auto;
+    margin:0em auto 5em;
     max-width: 80%;
   }
 
