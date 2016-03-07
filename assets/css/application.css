@@ -80,19 +80,19 @@ textarea {
   input[type="color"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="datetime"]::-webkit-input-placeholder, input[type="datetime-local"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder, input[type="month"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="search"]::-webkit-input-placeholder, input[type="tel"]::-webkit-input-placeholder, input[type="text"]::-webkit-input-placeholder, input[type="time"]::-webkit-input-placeholder, input[type="url"]::-webkit-input-placeholder, input[type="week"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder,
   select[multiple=multiple]::-webkit-input-placeholder,
   textarea::-webkit-input-placeholder {
-    color: #ddd; }
+    color: #bbb; }
   input[type="color"]::-moz-placeholder, input[type="date"]::-moz-placeholder, input[type="datetime"]::-moz-placeholder, input[type="datetime-local"]::-moz-placeholder, input[type="email"]::-moz-placeholder, input[type="month"]::-moz-placeholder, input[type="number"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="search"]::-moz-placeholder, input[type="tel"]::-moz-placeholder, input[type="text"]::-moz-placeholder, input[type="time"]::-moz-placeholder, input[type="url"]::-moz-placeholder, input[type="week"]::-moz-placeholder, textarea::-moz-placeholder,
   select[multiple=multiple]::-moz-placeholder,
   textarea::-moz-placeholder {
-    color: #ddd; }
+    color: #bbb; }
   input[type="color"]:-moz-placeholder, input[type="date"]:-moz-placeholder, input[type="datetime"]:-moz-placeholder, input[type="datetime-local"]:-moz-placeholder, input[type="email"]:-moz-placeholder, input[type="month"]:-moz-placeholder, input[type="number"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="search"]:-moz-placeholder, input[type="tel"]:-moz-placeholder, input[type="text"]:-moz-placeholder, input[type="time"]:-moz-placeholder, input[type="url"]:-moz-placeholder, input[type="week"]:-moz-placeholder, textarea:-moz-placeholder,
   select[multiple=multiple]:-moz-placeholder,
   textarea:-moz-placeholder {
-    color: #ddd; }
+    color: #bbb; }
   input[type="color"]:-ms-input-placeholder, input[type="date"]:-ms-input-placeholder, input[type="datetime"]:-ms-input-placeholder, input[type="datetime-local"]:-ms-input-placeholder, input[type="email"]:-ms-input-placeholder, input[type="month"]:-ms-input-placeholder, input[type="number"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="search"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholder, input[type="text"]:-ms-input-placeholder, input[type="time"]:-ms-input-placeholder, input[type="url"]:-ms-input-placeholder, input[type="week"]:-ms-input-placeholder, textarea:-ms-input-placeholder,
   select[multiple=multiple]:-ms-input-placeholder,
   textarea:-ms-input-placeholder {
-    color: #ddd; }
+    color: #bbb; }
 
 textarea {
   resize: vertical; }
@@ -238,7 +238,7 @@ section {
     left: 0;
     position: absolute;
     right: 0;
-    top: -256px;
+    top: -197px;
     transform: skewY(-7.5deg);
     transform-origin: 100% 0;
     z-index: -1;
@@ -310,33 +310,30 @@ section {
   padding: 1em; }
 
 .hero {
-  position: relative;
   background: url(../img/bg.jpg) no-repeat scroll left bottom;
   background-size: cover;
+  color: rgba(255, 255, 255, 0.88);
   padding: 10em 4em 16em;
+  position: relative;
   max-width: none;
   text-align: left; }
-  .hero::before {
-    background: rgba(0, 0, 0, 0.1);
-    content: " ";
+  .hero:before {
+    background-color: #24F970;
+    content: "";
     height: 100%;
     left: 0;
+    mix-blend-mode: multiply;
     position: absolute;
     top: 0;
     width: 100%; }
-  .hero::before {
-    background: rgba(255, 255, 255, 0.1); }
 
 .hero__title {
   border-bottom: 3px solid rgba(1, 251, 90, 0.16);
   font-size: 3em;
-  margin-bottom: .5em; }
+  margin-bottom: .5em;
+  position: relative; }
 
 .hero__subtitle {
-  font: 300 1.3em/1.2em "Raleway", sans-serif;
+  font: 300 1.5em/1.2em "Raleway", sans-serif;
+  position: relative;
   text-transform: uppercase; }
-
-.homepage .hero {
-  background-size: cover;
-  color: rgba(36, 249, 112, 0.88);
-  position: relative; }
