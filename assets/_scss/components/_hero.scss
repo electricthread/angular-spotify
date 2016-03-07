@@ -23,21 +23,35 @@
 }
 
 .hero {
-  @include white-overlay(.1);
   background:url(../img/bg.jpg) no-repeat scroll left bottom;
   background-size:cover;
+  color:rgba(255,255,255,.88);
   padding:10em 4em 16em;
+  position: relative;
   max-width: none;
   text-align:left;
+
+  &:before {
+    background-color: $light-green;
+    content: "";
+    height: 100%;
+    left: 0;
+    mix-blend-mode: multiply;
+    position: absolute;
+    top:0;
+    width: 100%;
+  }
 }
 
 .hero__title {
   border-bottom:3px solid rgba(1, 251, 90, 0.16);
   font-size: 3em;
   margin-bottom: .5em;
+  position: relative;
 }
 
 .hero__subtitle {
-  font: 300 1.3em/1.2em $base-font-family;
+  font: 300 1.5em/1.2em $base-font-family;
+  position: relative;
   text-transform:uppercase;
 }
