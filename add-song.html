@@ -1,17 +1,17 @@
 <form name="playlist-addition" ng-controller="SongController as songCtrl">
   <label>Create a Spotify Playlist Named:</label>
-  <input type="text" ng-model="songCtrlplaylist" ng-keyup="keyup()" placeholder="Spotify Angular Playlist">
+  <input type="text" ng-model="songCtrlplaylist" ng-keyup="keyup()" placeholder="Playlist Name">
 
   <div class="search" ng-show="songCtrlplaylist" ng-controller="SearchController as searchCtrl">
     <form name="search">
-      <label>Now Search for Songs</label>
+      <label>Search Songs</label>
       <input type="text" ng-model="trackName">
-      <button class="search_button" ng-click="searchCtrl.SongSearch(trackName)">Search for <span ng-show="trackName">"</span>{{ trackName || 'a Track'}} <span ng-show="trackName">"</span></button>
+      <button class="search_button" ng-click="searchCtrl.SongSearch(trackName)" ng-show="trackName">Search for "{{ trackName }}"</button>
     </form>
     <div class="search_result" ng-repeat="result in results">
       <iframe ng-src="{{ iframeURL + result.id}}" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
       <button ng-click="songCtrl.addToPlaylist(result.id, user, songCtrlplaylist, $event)" ng-disabled="songCtrl.disabled">Add This Song</button>
     </div>
-    <button class="search_more" ng-click="searchCtrl.MoreSongs(trackName)" ng-show="loadMore">Load More</button>
+    <button class="search_more" ng-click="searchCtrl.MoreSongs(trackName)" ng-show="loadMore">Load 5 More</button>
   </div>
 </form>
